@@ -1,4 +1,11 @@
 package com.golfpvcc.teamscorerev1
+// Full Room Database Tutorial - Build Notes App With Room DB Stop 15:40
+// https://www.youtube.com/watch?v=5pjdE2wnJ0s&t=203s
+// https://github.com/ahmed-guedmioui/Room_Databese_tutorail
+
+// Room database & Jetpack Compose + MVVM Architecture
+// https://www.youtube.com/watch?v=voMTReNRvUA
+// Stop @36:24
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
