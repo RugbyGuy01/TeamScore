@@ -9,9 +9,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
-
-//    id("kotlin-kapt")
+    // id("kotlin-kapt")
 }
 
 android {
@@ -35,8 +35,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -51,7 +50,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.7"
     }
     packaging {
         resources {
@@ -61,6 +60,11 @@ android {
 }
 
 dependencies {
+//    def composeBom = platform ('androidx.compose:compose-bom:2023.06.00')
+//    def kotlinBom = platform ('org.jetbrains.kotlin:kotlin-bom:1.8.0')
+    implementation ("org.jetbrains.kotlin:kotlin-bom:1.9.0")
+    implementation ("androidx.compose:compose-bom:2023.10.01")
+    androidTestImplementation ("androidx.compose:compose-bom:2023.10.01")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
@@ -78,6 +82,23 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    //accompanist
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.31.5-beta")
+
+    // extended Icons
+    implementation ("androidx.compose.material:material-icons-extended")
+
+    // Navigation Compose
+    implementation("androidx.navigation:navigation-compose")
+
+    // Dagger - Hilt
+
+    implementation ("com.google.dagger:hilt-android:2.48")
+    ksp ("com.google.dagger:dagger-compiler:2.48") // Dagger compiler
+    ksp ("com.google.dagger:hilt-compiler:2.48")   // Hilt compiler
+ //   ksp "com.google.dagger:hilt-compiler:2.44"
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
     // VPG added from git
     // Compose dependencies
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
@@ -85,13 +106,19 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
     // room issues VPG
 
-    implementation( "com.google.code.gson:gson:2.10")
-
-//
+    implementation("com.google.code.gson:gson:2.10")
     // Room
- //   def room_version = "2.5.0"
+   // def room_version = "2.6.1"
+    implementation ("androidx.room:room-runtime:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
     ksp ("androidx.room:room-compiler:2.6.1")
+    testImplementation ("androidx.room:room-testing:2.6.1")
+    androidTestImplementation ("androidx.room:room-testing:2.6.1")
+//
+    // Room
+    //   def room_version = "2.5.0"
+//    implementation("androidx.room:room-ktx:2.6.1")
+//    ksp("androidx.room:room-compiler:2.6.1")
 
     // Kotlin extensions and Room coroutine support
     //implementation("androidx.room:room-ktx:2.5.2")

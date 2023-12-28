@@ -13,8 +13,8 @@ interface CourseDao {
     @Upsert // addding or updatin a record
     suspend fun addUpdateCourse(course: CourseRecord)
 
-    @Delete
-    suspend fun deleteCourse(course: CourseRecord)
+    @Query("DELETE FROM course_table WHERE m_Id =:m_Id")
+    fun deleteCourse(m_Id: Int)
 
     @Query("Select * FROM course_table ORDER BY m_CourseName ASC")
     fun getAllCoursesAsc(): Flow<List<CourseRecord>>
@@ -22,7 +22,7 @@ interface CourseDao {
     @Query("Select * FROM course_table ORDER BY m_CourseName DESC")
     fun getAllCoursesDec(): Flow<List<CourseRecord>>
 
-    @Query("Select * FROM course_table WHERE m_Id =: course_id")
+    @Query("Select * FROM course_table WHERE m_Id =:course_id")
     fun getCourse(course_id: Int): Flow<CourseRecord>
 
 }

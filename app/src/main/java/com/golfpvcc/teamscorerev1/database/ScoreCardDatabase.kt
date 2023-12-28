@@ -10,7 +10,7 @@ import com.golfpvcc.teamscorerev1.database.dao.ScoreCardDao
 import com.golfpvcc.teamscorerev1.database.records.CourseRecord
 import com.golfpvcc.teamscorerev1.database.records.PlayerRecord
 import com.golfpvcc.teamscorerev1.database.records.ScoreCardRecord
-@TypeConverters(DataConverters::class)
+@TypeConverters(value = [DataConverters::class])
 @Database(
     entities = [CourseRecord::class, ScoreCardRecord::class],
     version = 1,

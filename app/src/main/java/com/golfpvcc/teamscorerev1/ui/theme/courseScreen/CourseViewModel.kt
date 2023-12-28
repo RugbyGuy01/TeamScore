@@ -45,11 +45,15 @@ class CourseViewModel(
                 }
 
             is CourseEvent.SaveCourse -> {
-                val courseRecord = CourseRecord(
-                    "Test Course", "4,5,4,4,4,4,3,4,4", "1,2,3,4,5,6,7,8,9", "FL"
+                val myCourseRecord = CourseRecord(
+                    m_CourseName = state.value.m_CourseName.value,
+                    m_HolesPar = state.value.m_HolesPar.value,
+                    m_HolesHandicap = state.value.m_HolesHandicap.value,
+                    m_State = state.value.m_State.value
                 )
+
                 viewModelScope.launch {
-                    courseDao.addUpdateCourse(courseRecord)
+                    courseDao.addUpdateCourse(myCourseRecord)
                 }
                 _state.update {
                     it.copy(
