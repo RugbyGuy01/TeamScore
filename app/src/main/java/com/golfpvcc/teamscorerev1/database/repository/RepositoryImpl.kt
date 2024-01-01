@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val courseDao: CourseDao
-): Repository {  // Vinnie press control I to get these medones
+): Repository {  // Vinnie press control I to get these methods
     override fun getAllCourses(): Flow<List<CourseRecord>> {
         return courseDao.getAllCoursesAsc()
     }

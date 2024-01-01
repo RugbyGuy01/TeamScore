@@ -2,7 +2,8 @@ package com.golfpvcc.teamscorerev1
 
 // How to Build a Note App with Jetpack Compose, MVVM, and Clean Architecture
 // https://www.youtube.com/watch?v=srp2d3_ofRU&list=PL1YQsimP1H2bH3zppxEB9War9bqMgSDzI&index=50&t=213s
-// Stop @24:42
+// Stop @204:41
+// https://github.com/Hoodlab/Note
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

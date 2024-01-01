@@ -1,4 +1,4 @@
-package com.golfpvcc.teamscorerev1.navigation
+package com.golfpvcc.teamscorerev1.presentation.navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
