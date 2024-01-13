@@ -180,13 +180,13 @@ fun CourseCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                IconButton(onClick = { onDeleteCourse(course.m_Id) }) {
+                IconButton(onClick = { course.m_Id?.let { onDeleteCourse(it) } }) {
                     Icon(
                         imageVector = Icons.Default.Delete,
                         contentDescription = null
                     )
                 }
-                IconButton(onClick = { onCourseClicked(course.m_Id) }) {
+                IconButton(onClick = { course.m_Id?.let { onCourseClicked(it) } }) {
                     Icon(
                         imageVector = Icons.Default.Edit,
                         contentDescription = null

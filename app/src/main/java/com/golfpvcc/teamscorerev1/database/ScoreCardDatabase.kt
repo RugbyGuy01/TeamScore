@@ -20,24 +20,4 @@ import com.golfpvcc.teamscorerev1.database.records.ScoreCardRecord
 abstract class ScoreCardDatabase: RoomDatabase() {
     abstract fun courseDao(): CourseDao
     abstract fun scoreCardDao(): ScoreCardDao
-
-//    companion object {
-//        @Volatile
-//        private var INSTANCE: ScoreCardDatabase? = null
-//        fun getDatabase(context: Context): ScoreCardDatabase{
-//            val tempInstance = INSTANCE
-//            if(tempInstance != null){
-//                return tempInstance
-//            }
-//            synchronized(this){
-//                val instance = Room.databaseBuilder(
-//                    context.applicationContext,
-//                    ScoreCardDatabase::class.java,
-//                    "score_card.db"
-//                ).build()
-//                INSTANCE = instance
-//                return instance
-//            }
-//        }
-//    }
 }
